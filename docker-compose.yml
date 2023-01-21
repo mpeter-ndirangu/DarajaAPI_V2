@@ -1,0 +1,27 @@
+version: "3"
+services:
+  daraja_api:
+    build: .
+    environment:
+             DATABASE_NAME: tempdb
+             DB_PASSWORD: Pass@word1
+             DB_USERNAME: sa
+             SMS_USERNAME: test
+             SMS_API_KEY: daddasdsa
+             LOG_LEVEL: INFO
+             DATABASE_SERVER: ms-sql-server
+    ports:
+      - "8089:9000"
+    depends_on:
+      - ms-sql-server
+
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    environment:
+         ACCEPT_EULA: "Y"
+         SA_PASSWORD: "Pass@word1"
+         MSSQL_PID: "Express"
+    ports:
+        - "1433:1433"
+    container_name: sql11
