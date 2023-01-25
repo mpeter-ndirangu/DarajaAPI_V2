@@ -4,106 +4,106 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class B2CPaymentRequest {
   @JsonProperty("InitiatorName")
-  private String initiatorName;
+  private String InitiatorName;
   @JsonProperty("SecurityCredential")
-  private String securityCredential;
+  private String SecurityCredential;
   @JsonProperty("CommandID")
-  private String commandID;
+  private String CommandID;
   @JsonProperty("Amount")
-  private String amount;
+  private Float Amount;
   @JsonProperty("PartyA")
-  private String partyA;
+  private Integer PartyA;
   @JsonProperty("PartyB")
-  private String partyB;
+  private Long PartyB;
   @JsonProperty("Remarks")
-  private String remarks;
+  private String Remarks;
   @JsonProperty("QueueTimeOutURL")
-  private String queueTimeOutURL;
+  private String QueueTimeOutURL;
   @JsonProperty("ResultURL")
-  private String resultURL;
-  @JsonProperty("Occasion")
-  private String occasion;
+  private String ResultURL;
+  @JsonProperty("Occassion")
+  private String Occassion;
 
   public B2CPaymentRequest() {
   }
 
   public String getInitiatorName() {
-    return initiatorName;
+    return InitiatorName;
   }
 
   public void setInitiatorName(String initiatorName) {
-    this.initiatorName = initiatorName;
+    InitiatorName = initiatorName;
   }
 
   public String getSecurityCredential() {
-    return securityCredential;
+    return SecurityCredential;
   }
 
   public void setSecurityCredential(String securityCredential) {
-    this.securityCredential = securityCredential;
+    SecurityCredential = securityCredential;
   }
 
   public String getCommandID() {
-    return commandID;
+    return CommandID;
   }
 
   public void setCommandID(String commandID) {
-    this.commandID = commandID;
+    CommandID = commandID;
   }
 
-  public String getAmount() {
-    return amount;
+  public Float getAmount() {
+    return Amount;
   }
 
-  public void setAmount(String amount) {
-    this.amount = amount;
+  public void setAmount(Float amount) {
+    Amount = amount;
   }
 
-  public String getPartyA() {
-    return partyA;
+  public Integer getPartyA() {
+    return PartyA;
   }
 
-  public void setPartyA(String partyA) {
-    this.partyA = partyA;
+  public void setPartyA(Integer partyA) {
+    PartyA = partyA;
   }
 
-  public String getPartyB() {
-    return partyB;
+  public Long getPartyB() {
+    return PartyB;
   }
 
-  public void setPartyB(String partyB) {
-    this.partyB = partyB;
+  public void setPartyB(Long partyB) {
+    PartyB = partyB;
   }
 
   public String getRemarks() {
-    return remarks;
+    return Remarks;
   }
 
   public void setRemarks(String remarks) {
-    this.remarks = remarks;
+    Remarks = remarks;
   }
 
   public String getQueueTimeOutURL() {
-    return queueTimeOutURL;
+    return QueueTimeOutURL;
   }
 
   public void setQueueTimeOutURL(String queueTimeOutURL) {
-    this.queueTimeOutURL = queueTimeOutURL;
+    QueueTimeOutURL = queueTimeOutURL;
   }
 
   public String getResultURL() {
-    return resultURL;
+    return ResultURL;
   }
 
   public void setResultURL(String resultURL) {
-    this.resultURL = resultURL;
+    ResultURL = resultURL;
   }
 
-  public String getOccasion() {
-    return occasion;
+  public String getOccassion() {
+    return Occassion;
   }
 
-  public void setOccasion(String occasion) {
-    this.occasion = occasion;
+  public void setOccassion(String occassion) {
+    Occassion = occassion;
   }
 }

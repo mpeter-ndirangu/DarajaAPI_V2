@@ -1,7 +1,6 @@
 package com.daraja.payloads.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.math.BigDecimal;
 
 public class PaymentRequest {
 
@@ -9,13 +8,13 @@ public class PaymentRequest {
   private String commandID;
 
   @JsonProperty("Amount")
-  private BigDecimal amount;
+  private Float amount;
 
   @JsonProperty("Shortcode")
-  private String shortcode;
+  private Integer shortcode;
 
   @JsonProperty("MobileNumber")
-  private String mobileNumber;
+  private Long mobileNumber;
 
   @JsonProperty("Narration")
   private String narration;
@@ -31,27 +30,28 @@ public class PaymentRequest {
     this.commandID = commandID;
   }
 
-  public BigDecimal getAmount() {
+
+  public Float getAmount() {
     return amount;
   }
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Float amount) {
     this.amount = amount;
   }
 
-  public String getShortcode() {
+  public Integer getShortcode() {
     return shortcode;
   }
 
-  public void setShortcode(String shortcode) {
+  public void setShortcode(Integer shortcode) {
     this.shortcode = shortcode;
   }
 
-  public String getMobileNumber() {
+  public Long getMobileNumber() {
     return mobileNumber;
   }
 
-  public void setMobileNumber(String mobileNumber) {
+  public void setMobileNumber(Long mobileNumber) {
     this.mobileNumber = mobileNumber;
   }
 
