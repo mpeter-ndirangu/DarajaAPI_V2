@@ -2,7 +2,6 @@ package com.daraja.controller;
 
 import com.daraja.payloads.request.PaymentRequest;
 import com.daraja.services.interfaces.B2CService;
-import java.math.BigDecimal;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

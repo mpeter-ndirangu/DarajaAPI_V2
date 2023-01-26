@@ -37,8 +37,9 @@ public class B2CServiceImpl implements B2CService {
   @Value("${daraja.initiatorName}")
   public String initiatorName;
 
-  @Value("${daraja.securityCredential}")
-  public String securityCredential;
+  @Value("${daraja.initiatorPassword}")
+  public String initiatorPassword;
+
 
   @Value("${daraja.listenerBase}")
   public String ListenerBase ;
@@ -59,7 +60,7 @@ public class B2CServiceImpl implements B2CService {
       requestHeaders.add("Content-Type", "application/json");
       B2CPaymentRequest b2CPaymentRequest = new B2CPaymentRequest();
       b2CPaymentRequest.setInitiatorName(initiatorName);
-      b2CPaymentRequest.setSecurityCredential(securityCredential);
+      b2CPaymentRequest.setSecurityCredential(PasswordUtil.getSecurityCredentials(initiatorPassword));
       b2CPaymentRequest.setCommandID(B2CCommands.BusinessPayment.name());
       b2CPaymentRequest.setAmount(paymentRequest.getAmount());
       b2CPaymentRequest.setPartyA(senderShortCode);
