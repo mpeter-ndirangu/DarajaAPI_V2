@@ -1,0 +1,17 @@
+
+mpesa:
+  daraja:
+    consumer-key: ToC16p8jMpkidVYgyxWTVEVELNk4Fr9U
+    consumer-secret: EGsurHWhtHUAAjsz
+    oauth-endpoint: https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials
+    register-url-endpoint: https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl
+    simulate-transaction-endpoint: https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate
+    shortCode: 600982
+    confirmationURL: https://279eba87a32e.ngrok.io/mobile-money/confirmation
+    validationURL: https://279eba87a32e.ngrok.io/mobile-money/validation
+    responseType: Completed
+    b2c-transaction-endpoint: https://sandbox.safaricom.co.ke/mpesa/b2c/v1/paymentrequest
+    b2c-result-url: https://279eba87a32e.ngrok.io/mobile-money/transaction-result
+    b2c-queue-timeout-url: https://279eba87a32e.ngrok.io/mobile-money/b2c-queue-timeout
+    b2c-initiator-name: testapi
+    b2c-initiator-password: Safaricom999!*!

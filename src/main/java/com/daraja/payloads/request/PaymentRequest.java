@@ -9,10 +9,6 @@ public class PaymentRequest {
 
   @JsonProperty("Amount")
   private Float amount;
-
-  @JsonProperty("Shortcode")
-  private Integer shortcode;
-
   @JsonProperty("MobileNumber")
   private Long mobileNumber;
 
@@ -37,14 +33,6 @@ public class PaymentRequest {
 
   public void setAmount(Float amount) {
     this.amount = amount;
-  }
-
-  public Integer getShortcode() {
-    return shortcode;
-  }
-
-  public void setShortcode(Integer shortcode) {
-    this.shortcode = shortcode;
   }
 
   public Long getMobileNumber() {

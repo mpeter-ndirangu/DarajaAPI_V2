@@ -2,20 +2,27 @@ package com.daraja.util;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.cert.Certificate;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PublicKey;
+import java.security.Security;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
-import java.security.*;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 public class PasswordUtil {
+
+  private static final Logger logger =  LoggerFactory.getLogger(PasswordUtil.class);
 
   public static String b64Encode(String pString) {
     byte[] bytes = Base64.getEncoder().encode(pString.getBytes());
@@ -23,7 +30,7 @@ public class PasswordUtil {
   }
 
   public static String getSecurityCredentials(String initiatorPassword) {
-    String encryptedPassword;
+    String encryptedPassword = "";
     try {
       Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
       byte[]  input = initiatorPassword.getBytes();
@@ -39,20 +46,28 @@ public class PasswordUtil {
       encryptedPassword = String.valueOf(Base64.getEncoder().encode(cipherText));
       return encryptedPassword;
     } catch (IOException e) {
+      logger.error("getSecurityCredentials RuntimeException ", e);
       throw new RuntimeException(e);
     } catch (NoSuchPaddingException e) {
+      logger.error("getSecurityCredentials NoSuchPaddingException ", e);
       throw new RuntimeException(e);
     } catch (NoSuchAlgorithmException e) {
+      logger.error("getSecurityCredentials NoSuchAlgorithmException ", e);
       throw new RuntimeException(e);
     } catch (NoSuchProviderException e) {
+      logger.error("getSecurityCredentials NoSuchProviderException ", e);
       throw new RuntimeException(e);
     } catch (CertificateException e) {
+      logger.error("getSecurityCredentials CertificateException ", e);
       throw new RuntimeException(e);
     } catch (InvalidKeyException e) {
+      logger.error("getSecurityCredentials InvalidKeyException ", e);
       throw new RuntimeException(e);
     } catch (IllegalBlockSizeException e) {
+      logger.error("getSecurityCredentials IllegalBlockSizeException ", e);
       throw new RuntimeException(e);
     } catch (BadPaddingException e) {
+      logger.error("getSecurityCredentials BadPaddingException ", e);
       throw new RuntimeException(e);
     }
   }
