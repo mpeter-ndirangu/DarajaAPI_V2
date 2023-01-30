@@ -5,6 +5,8 @@ import com.daraja.exceptions.DarajaExceptions;
 import com.daraja.payloads.request.B2CCommands;
 import com.daraja.payloads.request.B2CPaymentRequest;
 import com.daraja.payloads.request.PaymentRequest;
+import com.daraja.payloads.response.AcknowledgeResponse;
+import com.daraja.payloads.response.B2CTransactionAsyncResponse;
 import com.daraja.payloads.response.DarajaResponse;
 import com.daraja.services.interfaces.AuthenticationService;
 import com.daraja.services.interfaces.B2CService;
@@ -72,5 +74,12 @@ public class B2CServiceImpl implements B2CService {
         throw new DarajaExceptions("Error Occurred" + responseEntity.getStatusCode());
       }
 
+  }
+
+  @Override
+  public ResponseEntity<?> b2cTransactionAsyncResults(
+      B2CTransactionAsyncResponse b2CTransactionAsyncResponse) {
+
+    return ResponseEntity.ok("Success");
   }
 }

@@ -6,8 +6,6 @@ services:
              DATABASE_NAME: tempdb
              DB_PASSWORD: Pass@word1
              DB_USERNAME: sa
-             SMS_USERNAME: test
-             SMS_API_KEY: daddasdsa
              LOG_LEVEL: INFO
              DATABASE_SERVER: ms-sql-server
     ports:
@@ -18,6 +16,9 @@ services:
   ms-sql-server:
     image: mcr.microsoft.com/mssql/server:2019-latest
     restart: always
+    command: /bin/bash ./entrypoint.sh
+    volumes:
+      - dbdata:/var/opt/mssql/data
     environment:
          ACCEPT_EULA: "Y"
          SA_PASSWORD: "Pass@word1"
