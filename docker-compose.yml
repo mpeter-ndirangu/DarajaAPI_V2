@@ -16,13 +16,10 @@ services:
   ms-sql-server:
     image: mcr.microsoft.com/mssql/server:2019-latest
     restart: always
-    command: /bin/bash ./entrypoint.sh
-    volumes:
-      - dbdata:/var/opt/mssql/data
     environment:
          ACCEPT_EULA: "Y"
          SA_PASSWORD: "Pass@word1"
          MSSQL_PID: "Express"
     ports:
-        - "1433:1433"
+        - "1434:1433"
     container_name: sql11
