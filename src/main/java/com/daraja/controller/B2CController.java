@@ -28,13 +28,13 @@ public class B2CController {
     this.b2CService = b2CService;
   }
 
- @RequestMapping(value = "/payment", method = RequestMethod.POST , produces = "application/json")
-  ResponseEntity<?> initiatePayment(@RequestBody PaymentRequest paymentRequest)
-      throws DarajaExceptions {
-    logger.info("===============initiate Payment=============");
-    logger.info(gson.toJson(paymentRequest));
-    return b2CService.initiatePayment(paymentRequest);
-  }
+// @RequestMapping(value = "/payment", method = RequestMethod.POST , produces = "application/json")
+//  ResponseEntity<?> initiatePayment(@RequestBody PaymentRequest paymentRequest)
+//      throws DarajaExceptions {
+//    logger.info("===============initiate Payment=============");
+//    logger.info(gson.toJson(paymentRequest));
+//    return b2CService.initiatePayment(paymentRequest);
+//  }
 
   @RequestMapping(value = "/transaction-result", method = RequestMethod.POST, produces = "application/json")
   ResponseEntity<?> b2cTransactionAsyncResults(@RequestBody

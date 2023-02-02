@@ -5,7 +5,6 @@ import com.daraja.exceptions.DarajaExceptions;
 import com.daraja.payloads.request.B2CCommands;
 import com.daraja.payloads.request.B2CPaymentRequest;
 import com.daraja.payloads.request.PaymentRequest;
-import com.daraja.payloads.response.AcknowledgeResponse;
 import com.daraja.payloads.response.B2CTransactionAsyncResponse;
 import com.daraja.payloads.response.DarajaResponse;
 import com.daraja.services.interfaces.AuthenticationService;
@@ -14,7 +13,6 @@ import com.daraja.util.PasswordUtil;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -39,7 +37,7 @@ public class B2CServiceImpl implements B2CService {
     this.restTemplate = restTemplate;
   }
   @Override
-  public ResponseEntity<?> initiatePayment(PaymentRequest paymentRequest) throws DarajaExceptions {
+  public DarajaResponse initiatePayment(PaymentRequest paymentRequest) throws DarajaExceptions {
     DarajaResponse darajaResponse;
 
       HttpHeaders requestHeaders = new HttpHeaders();
@@ -69,7 +67,7 @@ public class B2CServiceImpl implements B2CService {
           HttpMethod.POST, request, DarajaResponse.class);
       if (responseEntity.getStatusCode() == HttpStatus.OK) {
         darajaResponse = responseEntity.getBody();
-        return ResponseEntity.ok(darajaResponse);
+           return darajaResponse;
       } else {
         throw new DarajaExceptions("Error Occurred" + responseEntity.getStatusCode());
       }
