@@ -7,20 +7,20 @@ import lombok.Data;
 @Data
 public class Result {
 
-  @JsonProperty("ConversationId")
-  private String conversationId;
-
-  @JsonProperty("OriginatorConversationId")
-  private String originatorConversationId;
-
-  @JsonProperty("ResultDesc")
-  private String resultDesc;
-
   @JsonProperty("ResultType")
   private Integer resultType;
 
   @JsonProperty("ResultCode")
-  private Integer resultCode;
+  private Integer ResultCode;
+
+  @JsonProperty("ResultDesc")
+  private String resultDesc;
+
+  @JsonProperty("OriginatorConversationID")
+  private String OriginatorConversationID;
+
+  @JsonProperty("ConversationID")
+  private String ConversationID;
 
   @JsonProperty("TransactionID")
   private String transactionID;

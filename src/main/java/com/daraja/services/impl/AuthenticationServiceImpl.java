@@ -21,6 +21,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
   private final RestTemplate restTemplate;
   private final DarajaConfiguration configuration;
 
+
   public AuthenticationServiceImpl(RestTemplate restTemplate, DarajaConfiguration configuration) {
     this.restTemplate = restTemplate;
     this.configuration = configuration;

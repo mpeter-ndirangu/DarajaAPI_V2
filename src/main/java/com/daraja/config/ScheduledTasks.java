@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ScheduledTasks {
-  private final LoanApplicationService  loanApplicationService;
+
+  private final LoanApplicationService loanApplicationService;
   private final B2CService b2CService;
   private final Logger logger = LoggerFactory.getLogger(ScheduledTasks.class);
   private final Gson gson;
@@ -28,24 +29,32 @@ public class ScheduledTasks {
   }
 
   @Scheduled(fixedRate = 10000)
-  public void performTask() throws DarajaExceptions {
-
+  public void performTask() throws Exception {
 
     List<LoanApplication> loanApplicationList = loanApplicationService.getPendingLoans(1);
 
     for (int i = 0; i < loanApplicationList.size(); i++) {
-      DarajaResponse  darajaResponse;
+      DarajaResponse darajaResponse;
       LoanApplication loanApplication = loanApplicationList.get(i);
 
       PaymentRequest paymentRequest = new PaymentRequest();
-      paymentRequest.setNarration(loanApplication.getAccountReferenceNumber());
+      paymentRequest.setNarration(loanApplication.getRefNo());
       paymentRequest.setAmount(loanApplication.getDisbursedAmount());
       paymentRequest.setMobileNumber(loanApplication.getPhoneNumber());
       logger.info("===============initiate Payment=============");
-       logger.info(gson.toJson(paymentRequest));
+      logger.info(gson.toJson(paymentRequest));
       darajaResponse = b2CService.initiatePayment(paymentRequest);
       logger.info("===============Payment Response=============");
       logger.info(gson.toJson(darajaResponse));
+     String msg = loanApplicationService.updateInitiatePayment(0,
+          loanApplication.getRefNo(),
+          darajaResponse.getConversationID(),
+          darajaResponse.getOriginatorConversationID(),
+          darajaResponse.getResponseCode(),
+          darajaResponse.getResponseDescription());
+
+      logger.info("===============updateInitiatePayment Response=============");
+      logger.info(gson.toJson(msg));
     }
 
   }

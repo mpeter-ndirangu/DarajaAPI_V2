@@ -19,4 +19,11 @@ public class LoanApplicationServiceImpl implements LoanApplicationService {
   public List<LoanApplication> getPendingLoans(Integer flg) {
     return loanApplicationRepository.getPendingLoans(1);
   }
+
+  @Override
+  public String updateInitiatePayment(Integer flg, String refno, String conversationID,
+      String originatorConversationID, String responseCode, String responseDescription) {
+    return loanApplicationRepository.updateInitiatePayment(flg, refno, conversationID,
+        originatorConversationID, responseCode, responseDescription);
+  }
 }

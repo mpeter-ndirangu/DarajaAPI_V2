@@ -1,7 +1,10 @@
 package com.daraja.util;
 
+
+import com.sun.org.apache.xml.internal.security.utils.Base64;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -10,7 +13,6 @@ import java.security.Security;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.util.Base64;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -25,8 +27,8 @@ public class PasswordUtil {
   private static final Logger logger =  LoggerFactory.getLogger(PasswordUtil.class);
 
   public static String b64Encode(String pString) {
-    byte[] bytes = Base64.getEncoder().encode(pString.getBytes());
-    return new String(bytes);
+    byte[] data = pString.getBytes(StandardCharsets.ISO_8859_1);
+    return Base64.encode(data);
   }
 
   public static String getSecurityCredentials(String initiatorPassword) {
@@ -35,7 +37,7 @@ public class PasswordUtil {
       Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
       byte[]  input = initiatorPassword.getBytes();
 
-      Resource resource = new ClassPathResource("cert.cer");
+      Resource resource = new ClassPathResource("ProductionCertificate.cer");
       InputStream inputStream = resource.getInputStream();
       Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding", "BC");
       CertificateFactory cf = CertificateFactory.getInstance("X.509");
@@ -43,7 +45,7 @@ public class PasswordUtil {
       PublicKey pk = certificate.getPublicKey();
       cipher.init(Cipher.ENCRYPT_MODE, pk);
       byte[] cipherText = cipher.doFinal(input);
-      encryptedPassword = String.valueOf(Base64.getEncoder().encode(cipherText));
+      encryptedPassword = Base64.encode(cipherText).trim();
       return encryptedPassword;
     } catch (IOException e) {
       logger.error("getSecurityCredentials RuntimeException ", e);

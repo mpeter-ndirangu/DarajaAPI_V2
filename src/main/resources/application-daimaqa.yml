@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    username: ENC(yeNBFF/WY+jGyGQmjBAduKPkGVd6HlzXtPYPG34QImLww1u4l48X4f1ioiwNlbXB)
+    url: jdbc:sqlserver://localhost;databaseName=tempdb;encrypt=false
+    password: ENC(62KxY1dqZBqLGhAUVbyrKPOwO43xPnLI/9mJft8xf0gFb68OnHZF74YdB0LRwQzM)
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2008Dialect
+mpesa:
+  daraja:
+    consumer-key: ENC(ylfppqUxbkT3zs8QD/7/1F7rAmxgpry7NO4KSmtZV6xajIR/HopxBrFaahFEeFh1YHuhXQG3RMJpHyGZVKFfS2xEVwt5GST2ezINCiJNLbg=)
+    consumer-secret: ENC(CQIZEEDLb7ZdhvLvOlFTibN6aq/gV4qV+iRK/5y3lTAmGfe7Rz1Kx1IziVC8BzPN/M8qjARsjhnt7TBo1aopuQ==)
+    b2c-initiator-name: ENC(c3JW6xpLKvOSbQ1MkRYvHYBU939zPPdPgPG4KAv3mGAWxAyWc5sFCQi3G7qBx6+w)
+    b2c-initiator-password: ENC(nFrOkMkC1ykBRZufU7WXctksdFcU4VkXzbuw3WsxVYWzvf4CJ0uNOG8Vadpzz60f)
+    shortCode: 600982
+    b2c-transaction-endpoint: https://sandbox.safaricom.co.ke/mpesa/b2c/v1/paymentrequest
+    b2c-result-url: https://a427-102-219-210-62.in.ngrok.io/api/v1/transaction-result
+    b2c-queue-timeout-url: https://a427-102-219-210-62.in.ngrok.io/api/v1/b2c-queue-timeout
+    oauth-endpoint: https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials
+    register-url-endpoint: https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl
+    simulate-transaction-endpoint: https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate
+    confirmationURL: https://279eba87a32e.ngrok.io/mobile-money/confirmation
+    validationURL: https://279eba87a32e.ngrok.io/mobile-money/validation
+    responseType: Completed
+
+jasypt:
+  encryptor:
+    password: d@1m@S@cc02023#
