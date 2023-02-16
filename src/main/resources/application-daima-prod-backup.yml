@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    username: ${DB_USERNAME}
+    url: jdbc:sqlserver://${DATABASE_SERVER};databaseName=${DATABASE_NAME};encrypt=false
+    password: ${DB_PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2008Dialect
+
+mpesa:
+  daraja:
+    consumer-key: fMhd2sXTjISceA6ZolIr9UGaAlOeaG8E
+    consumer-secret: 6AQK1k5wGFKjErmW
+    oauth-endpoint: https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials
+    register-url-endpoint: https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl
+    simulate-transaction-endpoint: https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate
+    shortCode: 874951
+    confirmationURL: https://284f-102-219-210-61.in.ngrok.io/mobile-money/confirmation
+    validationURL: https://284f-102-219-210-61.in.ngrok.io/mobile-money/validation
+    responseType: Completed
+    b2c-transaction-endpoint: https://api.safaricom.co.ke/mpesa/b2c/v1/paymentrequest
+    b2c-result-url: https://284f-102-219-210-61.in.ngrok.io/api/v1/transaction-result
+    b2c-queue-timeout-url: https://284f-102-219-210-61.in.ngrok.io/api/v1/b2c-queue-timeout
+    b2c-initiator-name: DAIMADRJB2C
+    b2c-initiator-password: Daima2Sacco!@

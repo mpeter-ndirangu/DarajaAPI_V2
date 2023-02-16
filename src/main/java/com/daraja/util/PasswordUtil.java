@@ -1,7 +1,7 @@
 package com.daraja.util;
 
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+import java.util.Base64;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -28,7 +28,7 @@ public class PasswordUtil {
 
   public static String b64Encode(String pString) {
     byte[] data = pString.getBytes(StandardCharsets.ISO_8859_1);
-    return Base64.encode(data);
+    return Base64.getEncoder().encodeToString(data);
   }
 
   public static String getSecurityCredentials(String initiatorPassword) {
@@ -45,7 +45,7 @@ public class PasswordUtil {
       PublicKey pk = certificate.getPublicKey();
       cipher.init(Cipher.ENCRYPT_MODE, pk);
       byte[] cipherText = cipher.doFinal(input);
-      encryptedPassword = Base64.encode(cipherText).trim();
+      encryptedPassword = Base64.getEncoder().encodeToString(cipherText).trim();
       return encryptedPassword;
     } catch (IOException e) {
       logger.error("getSecurityCredentials RuntimeException ", e);
