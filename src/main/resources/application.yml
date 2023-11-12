@@ -1,8 +1,8 @@
 spring:
   datasource:
-    username: ENC(m+E2+3l0gLV8NPHkPfdOmTbAZst030fVrXmKNhL0OIYDcGb82DnRTWC9bfycjkLb)
-    url: jdbc:sqlserver://192.168.1.10\\MSQL2008;database=Mobility;encrypt=false;trustServerCertificate=false
-    password: ENC(sZYL9ZildduyQNfA7RbB2tcmuhLRTZ8bOg3JV7i8htuNhJX2ctTc7sN84fxc9zNt)
+    username: sa
+    url: jdbc:sqlserver://192.168.64.4:1433;database=daraja-db;encrypt=false;trustServerCertificate=false
+    password: MyPass@word
   jpa:
     properties:
       hibernate:
