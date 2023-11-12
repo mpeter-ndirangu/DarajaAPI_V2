@@ -1,31 +1,3 @@
 spring:
-  datasource:
-    username: sa
-    url: jdbc:sqlserver://192.168.64.4:1433;database=daraja-db;encrypt=false;trustServerCertificate=false
-    password: MyPass@word
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.SQLServer2008Dialect
-
-mpesa:
-  daraja:
-    consumer-key: ENC(n79v+sKYKTo93yeo5a5XIBSZzrii6uJD1G8C2F6e+ml3XIgRz9H3/vT+vTpyyVsRTIUesm6XOdjLXZ0BklWACvh08EZ9sQb5BPCizkK7frA=)
-    consumer-secret: ENC(2un0pGHz5tBqcTS/siwoJajKd7H/2TWDfKuX3ztySv1oMzr9QcqFrfyI90GFiHA10jI5bGg+/0LgkJuKobz2UQ==)
-    b2c-initiator-name: ENC(sJbknSvVBYzz9yGjvKgsDBp8wX3nP8J+fUESdY6pHH3FvHIUhqm09vpkgGh05Fdl)
-    b2c-initiator-password: ENC(rfArjzzKV4I81Yd6h4Cnce5lCOUpQYuv0gfcEDEnfIj6yPNag609GtU+yNMsq/Lp)
-    oauth-endpoint: https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials 
-    b2c-result-url: https://gateway.daimasaccoapi.co.ke/DarajaAPI/api/v1/transaction-result
-    b2c-queue-timeout-url: https://gateway.daimasaccoapi.co.ke/DarajaAPI/api/v1/b2c-queue-timeout
-    register-url-endpoint: https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl
-    simulate-transaction-endpoint: https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate
-    shortCode: 874951
-    confirmationURL: https://gateway.daimasaccoapi.co.ke/DarajaAPI/mobile-money/confirmation
-    validationURL: https://gateway.daimasaccoapi.co.ke/DarajaAPI/mobile-money/validation
-    responseType: Completed
-    b2c-transaction-endpoint: https://api.safaricom.co.ke/mpesa/b2c/v1/paymentrequest
-
-jasypt:
-  encryptor:
-    password: d@1m@S@cc02023#
-
+  profiles:
+    active: dev
