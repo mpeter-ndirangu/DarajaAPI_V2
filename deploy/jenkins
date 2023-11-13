@@ -37,11 +37,11 @@ pipeline {
             }
         }
 
-        // stage('Stop service') {
+        // stage('Stop Daraja API Service') {
         //     steps {
         //           sh """
-        //           sudo systemctl stop bankApiService.service
-        //             sudo rm -f "/opt/bankAppService/Bank_Service-0.0.1-SNAPSHOT.jar"
+        //           sudo systemctl stop DarajaAPI.service
+        //             sudo rm -f "/opt/DarajaAPI/DarajaAPI.jar"
         //           """
         //     }
         // }
@@ -49,7 +49,7 @@ pipeline {
         // stage('Remove Old Jar File') {
         //     steps {
         //           sh """
-        //             sudo rm -f "/opt/bankAppService/Bank_Service-0.0.1-SNAPSHOT.jar"
+        //             sudo rm -f "/opt/DarajaAPI/DarajaAPI.jar"
         //           """
         //     }
         // }
@@ -57,7 +57,7 @@ pipeline {
         // stage('Upload New Jar File') {
         //     steps {
         //           sh """
-        //           sudo cp "/var/lib/jenkins/workspace/BankDemoCICD/target/Bank_Service-0.0.1-SNAPSHOT.jar" "/opt/bankAppService"
+        //           sudo cp "/var/lib/jenkins/workspace/DarajaAPI_V2/target/DarajaAPI.jar" "/opt/DarajaAPI"
         //           """
         //     }
         // }
@@ -65,7 +65,7 @@ pipeline {
         //  stage('Start Service') {
         //     steps {
         //           sh """
-        //           sudo systemctl start bankApiService.service
+        //           sudo systemctl start DarajaAPI.service
         //           """
         //     }
         // }

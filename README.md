@@ -23,6 +23,7 @@ WantedBy=multi-user.target
 
 
 ## Enable Start Service
+sudo systemctl enable DarajaAPI.service
 sudo systemctl start DarajaAPI.service
 sudo systemctl status DarajaAPI.service
 sudo systemctl stop DarajaAPI.service
