@@ -13,8 +13,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>DarajaAPI</name>
 	<description>Daraja Api B2C, C2B, STK</description>
-	<packaging>war</packaging>
-
 	<properties>
 		<java.version>11</java.version>
 		<springfox-version>2.9.2</springfox-version>
